@@ -1,175 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Will You Be My Valentine?</title>
-  <!-- Include Quicksand Font with additional weight (900) -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700;900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: 900;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #fff;
-    }
-    /* Container */
-    #container {
-      text-align: center;
-      padding: 2rem;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      position: relative;
-      z-index: 1;
-      margin: 1rem;
-    }
-    /* Heading */
-    #question {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      font-weight: 900;
-      line-height: 1.2;
-    }
-    /* Buttons Container */
-    #buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      position: relative;
-      height: 100px;
-    }
-    /* Buttons */
-    .button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.3s, background 0.3s, left 0.5s ease, top 0.5s ease;
-      min-width: 120px;
-      text-align: center;
-    }
-    /* Hover and Active States */
-    .button:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.3);
-    }
-    .button:active {
-      transform: translateY(0);
-    }
-    /* 'No' Button Specific Styles */
-    #noButton {
-      z-index: 2;
-    }
-    /* Responsive Design */
-    @media only screen and (max-width: 768px) {
-      #question {
-        font-size: 2rem;
-      }
-      .button {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-      }
-      #buttons {
-        height: auto;
-      }
-    }
-    @media only screen and (max-width: 480px) {
-      #question {
-        font-size: 1.75rem;
-        margin-bottom: 1.5rem;
-      }
-      .button {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.9rem;
-        min-width: 100px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div id="container">
-    <div id="question">Will you be my Valentine?</div>
-    <div id="buttons">
-      <a href="yes.html" id="yesButton" class="button">Yes!</a>
-      <button id="noButton" class="button" type="button">No!</button>
-    </div>
-  </div>
-  <script>
-    const noButton = document.getElementById('noButton');
-    let moveCount = 0; // To count the moves
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💝</title>
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+          <div class="floating-elements">
+                    <div class="heart">❤️</div>
+                            <div class="bear">🧸</div>
+                                    <div class="heart">💝</div>
+                                            <div class="bear">🐻</div>
+                                                    <div class="heart">💖</div>
+                                                        </div>
 
-    // Add click and touch event listeners to the "No" button
-    noButton.addEventListener('click', moveNoButton);
-    noButton.addEventListener('touchstart', moveNoButton);
+          <div class="container">
+                    <h1>Jade, my love, ...</h1>
 
-    function moveNoButton(e) {
-      e.preventDefault();
-
-      // After two moves, hide the "No" button
-      if (moveCount >= 2) {
-        noButton.style.display = 'none';
-        return;
-      }
-
-      // Get the current position relative to the viewport
-      const rect = noButton.getBoundingClientRect();
-      const currentX = rect.left;
-      const currentY = rect.top;
-      const buttonWidth = noButton.offsetWidth;
-      const buttonHeight = noButton.offsetHeight;
-
-      // Define boundaries for the random position
-      const margin = 10;
-      const maxX = window.innerWidth - buttonWidth - margin;
-      const maxY = window.innerHeight - buttonHeight - margin;
-
-      // Ensure movement is at least 25% of the screen width
-      const minMovement = window.innerWidth * 0.25;
-      let randomX, randomY, distance;
-      let attempts = 0;
-      const maxAttempts = 100;
-
-      do {
-        randomX = Math.floor(Math.random() * (maxX - margin + 1)) + margin;
-        randomY = Math.floor(Math.random() * (maxY - margin + 1)) + margin;
-        distance = Math.hypot(randomX - currentX, randomY - currentY);
-        attempts++;
-      } while (distance < minMovement && attempts < maxAttempts);
-
-      // Set the "No" button's position to fixed so it moves relative to the viewport
-      noButton.style.position = 'fixed';
-      noButton.style.left = randomX + 'px';
-      noButton.style.top = randomY + 'px';
-
-      moveCount++;
-
-      // After two moves, hide the button after a short delay so the final position is visible
-      if (moveCount >= 2) {
-        setTimeout(() => {
-          noButton.style.display = 'none';
-        }, 300);
-      }
-    }
-  </script>
-</body>
-</html>
+                    <div class="question-section" id="question1">
+                                  <h2>Do you like me?</h2>
+                                              <button class="cute-btn" onclick="showNextQuestion(2)">Yes</button>
+                                                          <button class="cute-btn" onclick="moveButton(this)">No</button>
+                                                     <div class="secret-answer">
+                                                       <button class="cute-btn special" onclick="showNextQuestion(2)">
+                                                              I don't like you, I love you! ❤️
+                                                         
